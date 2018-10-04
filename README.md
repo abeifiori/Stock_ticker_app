@@ -1,41 +1,45 @@
-# Flask on Heroku
+# Data Incubator Milestone Project: Flask Stock Ticker App on Heroku
 
-This project is intended to help you tie together some important concepts and
-technologies from the 12-day course, including Git, Flask, JSON, Pandas,
-Requests, Heroku, and Bokeh for visualization.
+This project contains the files for the stock ticker project which has been
+deployed on Heroku.
 
-The repository contains a basic template for a Flask configuration that will
-work on Heroku.
+With this app is possible to query the Quandl WIKI datasets API
+to generate an interactive plot with Bokeh of stock data from the
+Frankfurt Stock Exchange dataset.
+Different Ticker can be chosen, as well as a different range of dates
+and type of data to plot.
 
-A [finished example](https://lemurian.herokuapp.com) that demonstrates some basic functionality.
+## Getting Started
+Download the files, and run the app as python app.py
+Open http://localhost:5000 with your web browser.
+You should see your app running locally.
+Or run the app from Heroku.
 
-## Step 1: Setup and deploy
-- Git clone the existing template repository.
-- `Procfile`, `requirements.txt`, `conda-requirements.txt`, and `runtime.txt`
-  contain some default settings.
-- There is some boilerplate HTML in `templates/`
-- Create Heroku application with `heroku create <app_name>` or leave blank to
-  auto-generate a name.
-- (Suggested) Use the [conda buildpack](https://github.com/thedataincubator/conda-buildpack).
-  If you choose not to, put all requirements into `requirements.txt`
 
-  `heroku config:add BUILDPACK_URL=https://github.com/thedataincubator/conda-buildpack.git#py3`
 
-  The advantages of conda include easier virtual environment management and fast package installation from binaries (as compared to the compilation that pip-installed packages sometimes require).
-  One disadvantage is that binaries take up a lot of memory, and the slug pushed to Heroku is limited to 300 MB. Another note is that the conda buildpack is being deprecated in favor of a Docker solution (see [docker branch](https://github.com/thedataincubator/flask-framework/tree/docker) of this repo for an example).
-- Deploy to Heroku: `git push heroku master`
-- You should be able to see your site at `https://<app_name>.herokuapp.com`
-- A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
+### Prerequisites
+Before running the code package you need the following python packages
+installed:
+gunicorn==19.9.0
+requests==2.19.1
+Flask==1.0.2
+bokeh==0.13.0
+pandas==0.23.4
+simplejson==3.16.0
 
-## Step 2: Get data from API and put it in pandas
-- Use the `requests` library to grab some data from a public API. This will
-  often be in JSON format, in which case `simplejson` will be useful.
-- Build in some interactivity by having the user submit a form which determines which data is requested.
-- Create a `pandas` dataframe with the data.
 
-## Step 3: Use Bokeh to plot pandas data
-- Create a Bokeh plot from the dataframe.
-- Consult the Bokeh [documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html)
-  and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
-- Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.
-- Some good references for Flask: [This article](https://realpython.com/blog/python/python-web-applications-with-flask-part-i/), especially the links in "Starting off", and [this tutorial](https://github.com/bev-a-tron/MyFlaskTutorial).
+### Documentation
+* To be added
+
+
+### Installing
+
+
+## Author
+Alessandra Beifiori
+
+
+## License
+
+
+## Acknowledgments
