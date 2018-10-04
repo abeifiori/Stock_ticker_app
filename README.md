@@ -1,13 +1,11 @@
 # Data Incubator Milestone Project: Flask Stock Ticker App on Heroku
 
-This project contains the files for the stock ticker project which has been
-deployed on Heroku.
+This project contains the files for the stock ticker project which
+deployed on Heroku at
+https://beifiori-dataincubator-project.herokuapp.com
 
-With this app is possible to query the Quandl WIKI datasets API
-to generate an interactive plot with Bokeh of stock data from the
-Frankfurt Stock Exchange dataset.
-Different Ticker can be chosen, as well as a different range of dates
-and type of data to plot.
+The app queries the Quandl WIKI datasets API to generate an interactive plot of stock data from the Frankfurt Stock Exchange dataset.
+The user can plot different stock tickers by choosing a ticker symbol (see https://www.quandl.com/data/FSE-Frankfurt-Stock-Exchange?keyword= for a reference), or select a range of dates, as well as the type of data to plot.
 
 ## Getting Started
 Download the files, and run the app as python app.py
