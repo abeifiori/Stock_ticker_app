@@ -16,14 +16,14 @@ app = Flask(__name__)
 
 def read_data(url_acr='SIX2_X'):
     ''' Reads url and output json data
-        Test data: Stock Prices for Sixt Se St (SIX2) from the 
+        Test data: Stock Prices for Sixt Se St (SIX2) from the
         Frankfurt Stock Exchange
         Other actions from FSE can be used adding their acronym.
     '''
 
     url='https://www.quandl.com/api/v3/datasets/FSE/'+url_acr+'.json?api_key=-HsqRdH79HqspmzaVufw'
-    
-    r = requests.get(url)    
+
+    r = requests.get(url)
 
     if r.status_code != 200:
         print('Status:', r.status_code,
@@ -60,38 +60,38 @@ def get_data(r,start_date=None,end_date=None,col_use=None):
     # select only range of data of one month if given by the user
     # otherwise consider the full set
     if not start_date and not end_date:
-        start_date=data_values['Date'].min()    
+        start_date=data_values['Date'].min()
         end_date=data_values['Date'].max()
 
     #select rows to use
-    data_values=data_values[(data_values['Date'] >= start_date) & (data_values['Date'] <=end_date)] 
+    data_values=data_values[(data_values['Date'] >= start_date) & (data_values['Date'] <=end_date)]
 
     #select column to use
     if not col_use:
         print("no selected columns, use all")
-    else:    
+    else:
         col_use_all=['Date']
         col_use_all.extend(col_use)
         data_values=data_values[col_use_all]
         #redefine column names
         column_names=list(data_values)
-            
+
     return data_values,column_names
 
 
-    
+
     return data_values,column_names
 
 def make_plot(data_values,column_names,title_name='Sixt Se St (SIX2)'):
     ''' Plots data provided in pandas dataframe
-        ToDo: currently plotting no more than 6 lines    
+        ToDo: currently plotting no more than 6 lines
     '''
 
     # define tools
     TOOLS="pan,wheel_zoom,box_zoom,reset,save"
-    
+
     # create a new plot with a a datetime axis type
-    p = figure(tools=TOOLS,width=500, height=350, x_axis_type="datetime", 
+    p = figure(tools=TOOLS,width=500, height=350, x_axis_type="datetime",
     toolbar_location="below")
 
     numlines=len(column_names[1:])+1
@@ -128,7 +128,7 @@ def make_plot(data_values,column_names,title_name='Sixt Se St (SIX2)'):
     show(p)
 
     return p
- 
+
 
 @app.route('/', methods=['GET','POST']) #allow both GET and POST requests
 def index():
@@ -146,10 +146,10 @@ def index():
         col_use = request.form.getlist("col_use")
 
         r=read_data(url_acr)
-    
+
         data_values,column_names=get_data(r,start_date=start_date,end_date=end_date,
                                             col_use=list(col_use))
- 
+
         #print("reading",data_values,column_names)
 
         # Create the plot
@@ -179,8 +179,8 @@ def index():
 
 @app.route('/plot_data/')
 def plot_data():
-    ''' Plots default data by cliccing the link. 
-        ToDo: a second window is open when the request 
+    ''' Plots default data by cliccing the link.
+        ToDo: a second window is open when the request
         for a plot is sent.
     '''
     #read url
@@ -188,7 +188,7 @@ def plot_data():
     start_date='2018-05-01'
     end_date='2018-06-01'
     col_use=['Open', 'High', 'Low', 'Close']
-        
+
     r=read_data(url_acr)
 
     #get dataframe and column names
@@ -202,13 +202,13 @@ def plot_data():
     script, div = components(plot)
 
     return render_template('plot.html',script=script,div=div)
-    
+
 
 @app.route('/about')
 def about():
   return render_template('about.html')
 
-# With debug=True, Flask server will auto-reload 
+# With debug=True, Flask server will auto-reload
 # when there are code changes
 if __name__ == '__main__':
   #port=33507
