@@ -6,6 +6,7 @@
 
     <title>Stock Ticker Plot</title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Bokeh core CSS -->
 <link
     href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css"
@@ -19,16 +20,32 @@
 
 
 </head>
+
   <body>
 
-   <H1>Stock Ticker Plot</H1>
+   <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-left">
+	  <h2>Stock Ticker Lookup App</h2>
 
-   {{ script|safe }}  
+
+   <h4>Stock Ticker Plot</h4>
+
+   {{ script|safe }}
    {{ div|safe }}
+
+<p>
+<a href="/" class="btn btn-primary">Home</a>
+</p>
+
+	   </div>
+      </div>
+      </div>
+
 
    </body>
 </html>
-    
+
     <!-- JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -37,6 +54,8 @@
     <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.13.0.min.js"></script>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
    </body>
 </html>
-

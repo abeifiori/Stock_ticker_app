@@ -27,7 +27,6 @@ simplejson==3.16.0
 
 
 ### Documentation
-* To be added
 
 
 ### Installing

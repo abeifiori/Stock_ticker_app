@@ -1,4 +1,4 @@
-#!/Users/beifiori/TDI_fellowship/12_prep/flask-framework/env/bin/python3
+#!/Users/beifiori/TDI_fellowship/12_prep/stock_ticker_app/env/bin/python3
 # EASY-INSTALL-ENTRY-SCRIPT: 'bokeh==0.13.0','console_scripts','bokeh'
 __requires__ = 'bokeh==0.13.0'
 import re

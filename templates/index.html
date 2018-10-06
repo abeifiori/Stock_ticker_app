@@ -17,20 +17,20 @@
         <div class="col-lg-12 text-left">
 	  <h2>Stock Ticker Lookup App</h2>
           <ul>
-	    <li><a href="/about">About</a></li>
+	    <!--<li><a href="/about">About</a></li>-->
 	    <!--<li><a href="/plot_data">Make plot</a></li>-->
       <li><a target="_blank" href="https://www.quandl.com/data/FSE-Frankfurt-Stock-Exchange?keyword=">Quandl WIKI dataset</a></li>
       <li><a target="_blank" href="https://github.com/abeifiori/Stock_ticker_app">GitHub</a></li>
 	  </ul>
 
-	  <br>
+    <br>
 	  <h4>Quandl Frankfurt Stock Exchange dataset:</h4>
 	      <form method="POST"  action="{{ url_for('index') }}"  class="add-entry form-group">
-                 Ticker Symbol: <input type="text"  name="url_acr" placeholder="SIX2_X"><br>
+                 Ticker Symbol: <input type="text"  name="url_acr" value="SIX2_X"><br>
                  <h4>Date Range:</h4>
                  Start Date: <input type="text"  name="start_date" placeholder="2018-05-01"><br>
 	               End date: <input type="text" name="end_date" placeholder="2018-06-01"><br>
-           <h4>Data:</h4>
+           <h4>Data to plot:</h4>
 	         Open  <input type="checkbox" name="col_use" value="Open" ><br>
 	         High  <input type="checkbox" name="col_use" value="High" ><br>
 	         Low  <input type="checkbox" name="col_use" value="Low" ><br>
@@ -38,6 +38,13 @@
 
                <input type="submit" class="btn btn-primary" value="Plot"><br>
               </form>
+
+
+
+{% for message in get_flashed_messages() %}
+      <div class="flash alert alert-success col-sm-4" role="success">{{ message }}</div>
+    {% endfor %}
+
 
 
         </div>
