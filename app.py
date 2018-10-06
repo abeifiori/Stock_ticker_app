@@ -188,13 +188,18 @@ def index():
         start_date=xstr(start_date)
         end_date=xstr(end_date)
 
+        print(start_date,end_date,is_date_valid(start_date),is_date_valid(end_date))
+
         #check format dates
-        if start_date or end_date:
-            if not is_date_valid(start_date) or not is_date_valid(end_date):
-                print("***ERROR dates***")
-                err_dates = True
+        #if start_date or end_date:
+        if ((start_date is not None and not is_date_valid(start_date))
+           or (end_date is not None and not is_date_valid(end_date))):
+            print("***ERROR dates***")
+            err_dates = True
         else:
             err_dates=False
+        #else:
+        #    err_dates=False
 
         #read url and get data and err_messages
         r,err_msg=read_data(url_acr)
